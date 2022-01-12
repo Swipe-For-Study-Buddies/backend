@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework_simplejwt import views as jwt_views
-from test_api.api import setProfile, getProfile
+from test_api.api import setProfile, getProfile, getSuggestionsAPI
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +25,5 @@ urlpatterns = [
     path('api/auth/', include('test_api.urls')),
     path('api/user/setUserProfile', setProfile.as_view(), name='set_profile'),
     path('api/user/getUserProfile', getProfile.as_view(), name='get_profile'),
+    path('api/user/getSuggestions', getSuggestionsAPI.as_view(), name="suggestion")
 ]
