@@ -1,7 +1,6 @@
 from django.contrib.auth import default_app_config
 from django.db import models
 from django.db.models.base import Model
-import jsonfield
 import json
 from json import loads
 from django.contrib.auth.hashers import make_password

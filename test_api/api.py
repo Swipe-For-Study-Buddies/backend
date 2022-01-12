@@ -109,8 +109,7 @@ class setProfile(APIView):
     
 class getProfile(APIView):
     def get(self, request):
-        print(request.user.username)
-        if request.user.username == None:
+        if not PersonalProfile.objects.filter(username = request.user.username).exists():
             return HttpResponse(status = 401)
         
         profile = PersonalProfile.objects.get(username = request.user.username)
@@ -119,6 +118,7 @@ class getProfile(APIView):
         interest = jsonDec.decode(profile.interest)
         skill = jsonDec.decode(profile.skill)
         wantingToLearn = jsonDec.decode(profile.wantingToLearn)
+        print(profile.name)
         
         json_data = {
             "name" : profile.name,
