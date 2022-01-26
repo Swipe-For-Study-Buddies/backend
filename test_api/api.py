@@ -1,3 +1,4 @@
+from msilib.schema import AppId
 from django.contrib.auth import get_user
 from rest_framework import generics, permissions, mixins
 from rest_framework.response import Response
@@ -160,3 +161,12 @@ class getSuggestionsAPI(APIView):
         json_data = json.dumps(match_user)
         return HttpResponse(json_data, content_type="application/json", status = 200)
     
+    
+class approveSuggestionAPI(APIView):
+    
+    
+    pass
+
+
+class rejectSuggestionAPI(APIView):
+    pass

@@ -16,14 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework_simplejwt import views as jwt_views
-from test_api.api import setProfile, getProfile, getSuggestionsAPI
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/auth/login', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
-    path('api/auth/', include('test_api.urls')),
-    path('api/user/setUserProfile', setProfile.as_view(), name='set_profile'),
-    path('api/user/getUserProfile', getProfile.as_view(), name='get_profile'),
-    path('api/user/getSuggestions', getSuggestionsAPI.as_view(), name="suggestion")
+    path('api/auth/', include('test_api.auth_urls')),
+    path('api/user/', include('test_api.user_urls')),
+    
 ]

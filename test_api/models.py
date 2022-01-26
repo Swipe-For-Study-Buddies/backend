@@ -57,7 +57,7 @@ class Learn(models.Model):
         return self.LabelName_Learn
 
     def get_model_learn(self, name):
-        return Learn.objects.get(LabelName_Learn = name)
+        return Skill.objects.get(LabelName_Skill = name)
     
     def match_learn(self, labels):
         label = self.get_model_learn(self, labels)
@@ -79,7 +79,7 @@ class Skill(models.Model):
     Skill_User = models.TextField(null=True) 
       
     def get_model_skill(self, name):
-        return Learn.objects.get(LabelName_Skill = name)
+        return Learn.objects.get(LabelName_Learn = name)
       
     def match_skill(self, labels):
         label = self.get_model_skill(self, labels)
